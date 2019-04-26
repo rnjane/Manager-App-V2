@@ -81,20 +81,3 @@ class BudgetExpense(models.Model):
 
     class Meta:
         ordering = ['date_created']
-
-class IncomeCategories(models.Model):
-    name = models.CharField(max_length=30)
-    amount = models.DecimalField(max_digits=10, decimal_places=2, default=Decimal('0.00'))
-    owner = models.ForeignKey(User, related_name='income_categories', on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.name
-
-
-class ExpenseCategories(models.Model):
-    name = models.CharField(max_length=30)
-    amount = models.DecimalField(max_digits=10, decimal_places=2, default=Decimal('0.00'))
-    owner = models.ForeignKey(User, related_name='expense_categories', on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.name
